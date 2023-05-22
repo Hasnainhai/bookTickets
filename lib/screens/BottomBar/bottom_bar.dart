@@ -10,7 +10,7 @@ class BottomBar extends StatefulWidget {
     const HomeScreen(),
     const Text('Search'),
     const Text('Tickets'),
-    const Text('Profile'),
+    const HomeScreen(),
   ];
 
   @override
