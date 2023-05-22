@@ -4,7 +4,7 @@ import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatefulWidget {
-  BottomBar({super.key});
+  const BottomBar({super.key});
 
   static final List<Widget> _widgetOption = <Widget>[
     const HomeScreen(),
