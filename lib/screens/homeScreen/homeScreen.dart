@@ -1,4 +1,5 @@
 import 'package:book_tickets/utilils/app_styles.dart';
+import 'package:book_tickets/view_model/hotels_view.dart';
 import 'package:book_tickets/view_model/ticket_view.dart';
 import 'package:flutter/material.dart';
 
@@ -92,7 +93,49 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(height: 20.0),
-          const TicketView(),
+          const SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Row(
+              children: [
+                TicketView(),
+                TicketView(),
+                TicketView(),
+              ],
+            ),
+          ),
+          const SizedBox(height: 16.0),
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Hotels',
+                  style: Styles.headLine2,
+                ),
+                Text(
+                  'View All',
+                  style: Styles.headLine4,
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 20.0),
+          const SingleChildScrollView(
+            scrollDirection: Axis.horizontal,
+            child: Padding(
+              padding: EdgeInsets.only(left: 20.0),
+              child: Row(
+                children: [
+                  HotelsView(),
+                  SizedBox(width: 20.0),
+                  HotelsView(),
+                  SizedBox(width: 20.0),
+                  HotelsView(),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
