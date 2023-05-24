@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'screens/BottomBar/bottom_bar.dart';
 
 void main() {
@@ -11,7 +10,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       home: BottomBar(),
     );
   }
