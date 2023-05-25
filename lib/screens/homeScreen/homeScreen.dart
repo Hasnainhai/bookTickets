@@ -1,10 +1,14 @@
 import 'package:book_tickets/utilils/app_styles.dart';
-import 'package:book_tickets/view_model/hotels_view.dart';
-import 'package:book_tickets/view_model/ticket_view.dart';
+import 'package:book_tickets/view_model/Hotels_view/hotelsList_Info/hotels_list_info.dart';
+import 'package:book_tickets/view_model/Hotels_view/hotels_view.dart';
+import 'package:book_tickets/view_model/tickets_view/ticket_view.dart';
+import 'package:book_tickets/view_model/tickets_view/ticketsList_Info/ticket_info.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  HomeScreen({
+    super.key,
+  });
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -35,7 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         Text(
                           'Book Tickets',
                           style: Styles.headLine1,
-                        )
+                        ),
                       ],
                     ),
                     Container(
@@ -93,14 +97,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(height: 20.0),
-          const SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
-                TicketView(),
-                TicketView(),
-                TicketView(),
-              ],
+              children: ticketsList
+                  .map((sigleTicket) => TicketView(tickets: sigleTicket))
+                  .toList(),
             ),
           ),
           const SizedBox(height: 16.0),
@@ -121,19 +123,12 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           const SizedBox(height: 20.0),
-          const SingleChildScrollView(
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-            child: Padding(
-              padding: EdgeInsets.only(left: 20.0),
-              child: Row(
-                children: [
-                  HotelsView(),
-                  SizedBox(width: 20.0),
-                  HotelsView(),
-                  SizedBox(width: 20.0),
-                  HotelsView(),
-                ],
-              ),
+            child: Row(
+              children: hotelsList
+                  .map((singleHotel) => HotelsView(hotel: singleHotel))
+                  .toList(),
             ),
           ),
         ],
