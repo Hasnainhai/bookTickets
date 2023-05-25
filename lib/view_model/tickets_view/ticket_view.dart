@@ -4,7 +4,8 @@ import 'package:book_tickets/utilils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class TicketView extends StatefulWidget {
-  const TicketView({super.key});
+  final Map<String, dynamic> tickets;
+  const TicketView({super.key, required this.tickets});
 
   @override
   State<TicketView> createState() => _TicketViewState();
@@ -35,7 +36,7 @@ class _TicketViewState extends State<TicketView> {
                   Row(
                     children: [
                       Text(
-                        'GLT',
+                        widget.tickets['from']['code'],
                         style: Styles.textStyle.copyWith(color: Colors.white),
                       ),
                       Expanded(child: Container()),
@@ -85,7 +86,7 @@ class _TicketViewState extends State<TicketView> {
                       const ThickContainer(),
                       const Spacer(),
                       Text(
-                        'ISB',
+                        widget.tickets['to']['code'],
                         style: Styles.textStyle.copyWith(color: Colors.white),
                       ),
                     ],
@@ -97,20 +98,17 @@ class _TicketViewState extends State<TicketView> {
                       SizedBox(
                         width: 70.0,
                         child: Text(
-                          'gilgit',
+                          widget.tickets['from']['name'],
                           style: Styles.headLine4.copyWith(color: Colors.white),
                         ),
                       ),
                       Text(
-                        '8h:15m',
+                        widget.tickets['flying_time'],
                         style: Styles.headLine4.copyWith(color: Colors.white),
                       ),
-                      SizedBox(
-                        width: 70.0,
-                        child: Text(
-                          'islamabad',
-                          style: Styles.headLine4.copyWith(color: Colors.white),
-                        ),
+                      Text(
+                        widget.tickets['to']['name'],
+                        style: Styles.headLine4.copyWith(color: Colors.white),
                       ),
                     ],
                   ),
@@ -134,7 +132,6 @@ class _TicketViewState extends State<TicketView> {
                       ),
                     ),
                   ),
-                  // Expanded(child: Container()),
                   Expanded(
                     child: LayoutBuilder(
                       builder:
@@ -187,23 +184,17 @@ class _TicketViewState extends State<TicketView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        width: 70.0,
-                        child: Text(
-                          '1 May',
-                          style: Styles.headLine3.copyWith(color: Colors.white),
-                        ),
-                      ),
                       Text(
-                        '8:15 AM',
+                        widget.tickets['date'],
                         style: Styles.headLine3.copyWith(color: Colors.white),
                       ),
-                      SizedBox(
-                        width: 70.0,
-                        child: Text(
-                          '15',
-                          style: Styles.headLine3.copyWith(color: Colors.white),
-                        ),
+                      Text(
+                        widget.tickets['departure_time'],
+                        style: Styles.headLine3.copyWith(color: Colors.white),
+                      ),
+                      Text(
+                        widget.tickets['number'].toString(),
+                        style: Styles.headLine3.copyWith(color: Colors.white),
                       ),
                     ],
                   ),
@@ -211,23 +202,18 @@ class _TicketViewState extends State<TicketView> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      SizedBox(
-                        width: 70.0,
-                        child: Text(
-                          'Date',
-                          style: Styles.headLine4.copyWith(color: Colors.white),
-                        ),
+                      Text(
+                        'Date',
+                        style: Styles.headLine4.copyWith(color: Colors.white),
                       ),
+                      const SizedBox(width: 10.0),
                       Text(
                         'Departure time',
                         style: Styles.headLine4.copyWith(color: Colors.white),
                       ),
-                      SizedBox(
-                        width: 70.0,
-                        child: Text(
-                          'Number',
-                          style: Styles.headLine4.copyWith(color: Colors.white),
-                        ),
+                      Text(
+                        'Number',
+                        style: Styles.headLine4.copyWith(color: Colors.white),
                       ),
                     ],
                   ),
